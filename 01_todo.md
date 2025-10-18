@@ -103,11 +103,37 @@ Give `go run main.go` another run and make sure you're seeing the same "NORTHSTA
 
 ## Add initial /todos route
 
-NOTE: Simple GET route that returns basic HTML (no D\* yet)
+Let's implement our /todos route for showing our list of our TODO items. We'll focus on code additions at this point instead of the whole `main.go` file.
 
-## Implement TODO display from memory
+```go
+// Add a Struct and in memory store for our TODOs in the top level scope of the module. We'll focus on persisting these later.
+type Todo struct {
+    ID        int
+    Title     string
+    Completed bool
+}
 
-NOTE: In-memory slice/map, render as HTML
+var todos = []Todo{
+    {ID: 1, Title: "Learn Go", Completed: false},
+    {ID: 2, Title: "Build TODO app", Completed: false},
+}
+```
+
+OK now we'll add the route for rendering our TODOs. Inside the main function:
+
+```go
+r.Get("/todos", func(w http.ResponseWriter, r *http.Request) {
+  w.Header().Set("Content-Type", "text/html")
+  html := "<ul>"
+  for _, todo := range todos {
+    html += "<li>" + todo.Title + "</li>"
+  }
+  html += "</ul>"
+  w.Write([]byte(html))
+})
+```
+
+You should not be able to navigate to <http://locahlhost:8080/todos> and see a basic list. In the next few steps will work on authoring more complex HTML markup and render an actual page with layout.
 
 ## Introduce Templ
 
