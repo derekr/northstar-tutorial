@@ -2,7 +2,7 @@
 
 This repo contains some tutorials are contextualizing the [NORTHSTAR](https://github.com/zangster300/northstar) example repo.
 
-The tutorial will assume some familiarity with [Go][1] and [Datastar][2], but for the most part will build up concepts slowly.
+The tutorial will assume some familiarity with [Go][1] and [Datastar][2], but for the most part will build up concepts slowly. By the end you should be comfortable with the technology choices in NORTHSTAR to clone it as a starter for your next Go + Datastar project.
 
 ## tl;dr
 
