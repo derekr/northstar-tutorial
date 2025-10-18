@@ -6,7 +6,8 @@ Let's build a simple TODO application to demonstrate how [Command Query Responsi
 
 Start by setting up a new Go project.
 
-```go
+```shell
+mkdir northstart-tutrial && cd northstar-tutorial
 go mod init northstar-tutorial
 ```
 
@@ -14,13 +15,93 @@ This creates a go.mod file that will track your project's dependencies as we wor
 
 ## Create basic HTTP server
 
-NOTE: Minimal server listening on port
+Create a `main.go` file with a minimal HTTP server.
+
+```go
+package main
+
+import (
+    "log"
+    "net/http"
+)
+
+func main() {
+  log.Println("Server running on http:localhost:8080")
+  if err := http.ListenAndServe(":8080", nil); err != nil {
+    log.Fatal(err)
+  }
+}
+```
+
+Now run the server:
+
+```shell
+go run main.go
+```
+
+You'll see some output about the server running on port 8080. When accessing it you'll get a 404 because we haven't added any routes yet!
 
 ## Add HTTP router
 
-NOTE: Add chi
+Let's add our first route. Update the `main.go` file.
 
-## Add initial route
+```go
+package main
+
+import (
+    "log"
+    "net/http"
+)
+
+func main() {
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Content-Type", "text/html")
+        w.Write([]byte("<h1>NORTHSTAR App</h1>"))
+    })
+
+    log.Println("Server running on http:localhost:8080")
+    if err := http.ListenAndServe(":8080", nil); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+We now have our first route that serves up a basic "NORTHSTAR App" header! We know we'll be adding more routes so we'll go ahead and add the [chi][3] module to help keep things tidy.
+
+```shell
+go get github.com/go-chi/chi/v5
+```
+
+And again update our `main.go` file.
+
+```go
+package main
+
+import (
+    "log"
+    "net/http"
+
+    "github.com/go-chi/chi/v5"
+)
+
+func main() {
+    r := chi.NewRouter()
+
+    r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Content-Type", "text/html")
+        w.Write([]byte("<h1>NORTHSTAR App</h1>"))
+    })
+
+    log.Println("Server running on http:localhost:8080")
+    if err := http.ListenAndServe(":8080", r); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+Give `go run main.go` another run and make sure you're seeing the same "NORTHSTAR Tutorial" output.
+
+## Add initial /todos route
 
 NOTE: Simple GET route that returns basic HTML (no D\* yet)
 

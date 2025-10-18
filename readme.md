@@ -2,6 +2,8 @@
 
 This repo contains some tutorials are contextualizing the [NORTHSTAR](https://github.com/zangster300/northstar) example repo.
 
+The tutorial will assume some familiarity with Go and Datastar, but for the most part will build up concepts slowly.
+
 ## tl;dr
 
 NORTHSTAR is a starter repo for jumpstarting a Datastar project with a Go backend. It contains implementations for some common and idiomatic Datastar patterns like using CQRS, event streaming and "Fat Morphs".
