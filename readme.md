@@ -2,7 +2,7 @@
 
 This repo contains some tutorials are contextualizing the [NORTHSTAR](https://github.com/zangster300/northstar) example repo.
 
-The tutorial will assume some familiarity with Go and Datastar, but for the most part will build up concepts slowly.
+The tutorial will assume some familiarity with [Go][1] and [Datastar][2], but for the most part will build up concepts slowly.
 
 ## tl;dr
 
@@ -34,3 +34,6 @@ The tutorial is broken up in to parts to help focus on a single topic at a time.
 Rocket and Stellar are right around the corner so this tutorial may or may not reflect the most up to date with regards to styling and working with Web Components. That said the info will still be relevant and shouldn't impact understanding core Datastar and NORTHSTAR concepts.
 
 While the NORTHSTAR repo is fully featured with great defaults as far as tooling and dev experience go these tutorials will primarily focus on essential concepts and link out to the NORTHSTAR repo for more context or concrete examples.
+
+[1]: https://go.dev/
+[2]: https://data-star.dev/

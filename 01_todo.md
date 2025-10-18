@@ -6,7 +6,7 @@ Let's build a simple TODO application to demonstrate how [Command Query Responsi
 
 Start by setting up a new Go project.
 
-```shell
+```bash
 mkdir northstart-tutrial && cd northstar-tutorial
 go mod init northstar-tutorial
 ```
@@ -26,16 +26,16 @@ import (
 )
 
 func main() {
-  log.Println("Server running on http:localhost:8080")
-  if err := http.ListenAndServe(":8080", nil); err != nil {
-    log.Fatal(err)
-  }
+    log.Println("Server running on http:localhost:8080")
+    if err := http.ListenAndServe(":8080", nil); err != nil {
+       log.Fatal(err)
+    }
 }
 ```
 
 Now run the server:
 
-```shell
+```bash
 go run main.go
 ```
 
@@ -139,3 +139,4 @@ NOTE: show fragment-based updates of page
 
 [1]: https://www.geeksforgeeks.org/system-design/cqrs-command-query-responsibility-segregation/
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+[3]: https://github.com/go-chi/chi
