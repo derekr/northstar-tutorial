@@ -7,7 +7,7 @@ Let's build a simple TODO application to demonstrate how [Command Query Responsi
 Start by setting up a new Go project.
 
 ```go
-go mod init todo
+go mod init northstar-tutorial
 ```
 
 This creates a go.mod file that will track your project's dependencies as we work through this project.
